@@ -8,6 +8,10 @@ chmod 755 -R /home/ubuntu/django-app
 cd /home/ubuntu/django-app
 mkdir log
 
+# Setting allowed hosts
+IP=$(curl -s ifconfig.me)
+sed -i "s/localhost/$IP/g" demo/settings.py
+
 # Install Dependencies
 echo "Starting install_dependencies.sh" > log/install_dependencies.log
 
